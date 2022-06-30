@@ -1,11 +1,15 @@
-import { WebSocketServer } from 'ws'
+const { WebSocketServer } = require('ws')
 
-const wss = new WebSocketServer({ port: 8080 })
+const port = 8080
+const wss = new WebSocketServer({ port })
+
+console.log(`emoji server start port: ${port}`)
 
 wss.on('connection', (ws) => {
   ws.on('message', (data) => {
-    console.log('received: %s', data)
+    console.log('cli >', data)
+    ws.send(data)
   })
 
-  ws.send('something')
+  ws.send('Welcome! えもーーじサーバー')
 })
