@@ -6,11 +6,12 @@
   "scripts": {
     "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "load-emoji-lib": "curl https://raw.githubusercontent.com/peaceiris/emoji-ime-dictionary/main/tsv/emoji.tsv > data/emoji.tsv"
+    "setup": "./setup.sh"
   },
   "author": "",
   "license": "MIT",
   "dependencies": {
+    "kuromoji": "^0.1.2",
     "ws": "^8.8.0"
   }
 }
