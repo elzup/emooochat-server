@@ -1,24 +1,11 @@
-var ws = require('websocket.io')
+import { WebSocketServer } from 'ws'
 
-var server = ws.listen(5000, function () {
-  console.log('Listening on port 5000')
-})
+const wss = new WebSocketServer({ port: 8080 })
 
-server.on('connection', function (client) {
-  console.log('Client connected: ' + server.clientsCount)
-
-  client.on('message', function (msg) {
-    server.clients.forEach(function (c) {
-      if (c == null) return
-      c.send(msg)
-    })
+wss.on('connection', (ws) => {
+  ws.on('message', (data) => {
+    console.log('received: %s', data)
   })
 
-  client.on('close', function () {
-    console.log('Client disconnected: ' + server.clientsCount)
-  })
-
-  client.on('error', function (err) {
-    console.log('Error: ' + err.code)
-  })
+  ws.send('something')
 })

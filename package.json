@@ -8,5 +8,8 @@
     "load-emoji-lib": "curl https://raw.githubusercontent.com/peaceiris/emoji-ime-dictionary/main/tsv/emoji.tsv > data/emoji.tsv"
   },
   "author": "",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "ws": "^8.8.0"
+  }
 }
