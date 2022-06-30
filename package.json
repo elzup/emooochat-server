@@ -1,0 +1,11 @@
+{
+  "name": "emooochat-server",
+  "version": "1.0.0",
+  "description": "絵文字変換チャットWebSocketサーバー",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "MIT"
+}
