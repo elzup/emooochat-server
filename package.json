@@ -4,7 +4,8 @@
   "description": "絵文字変換チャットWebSocketサーバー",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "load-emoji-lib": "curl https://raw.githubusercontent.com/peaceiris/emoji-ime-dictionary/main/tsv/emoji.tsv > data/emoji.tsv"
   },
   "author": "",
   "license": "MIT"
