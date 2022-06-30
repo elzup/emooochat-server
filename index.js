@@ -9,14 +9,14 @@ console.log(` ws://localhost:${port}`)
 
 wss.on('connection', (ws, req) => {
   ws.on('message', (data) => {
-    console.log(`cli > ${data}`)
+    const msg = String(data)
+    const id = hash(req.socket.remoteAddress)
 
-    const ipId = hash(req.socket.remoteAddress)
+    console.log(`[${id}] > ${msg}`)
 
     wss.clients.forEach((client) => {
-      if (client.readyState === OPEN) {
-        client.send(`${ipId}: ${data}`)
-      }
+      if (client.readyState !== OPEN) return
+      client.send(JSON.stringify({ id, msg, time: Date.now() }))
     })
   })
 
