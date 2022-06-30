@@ -1,6 +1,6 @@
 #!/bin/sh
 
-rm data
+rm -rf data/*
 
 # download emoji lib
 # Thanks: https://github.com/peaceiris/emoji-ime-dictionary

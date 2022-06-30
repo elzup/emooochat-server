@@ -1,4 +1,5 @@
 const { WebSocketServer, OPEN } = require('ws')
+const { emojify } = require('./emojify')
 const { hash } = require('./hashing')
 
 const port = 8080
@@ -9,7 +10,7 @@ console.log(` ws://localhost:${port}`)
 
 wss.on('connection', (ws, req) => {
   ws.on('message', (data) => {
-    const msg = String(data)
+    const msg = emojify(String(data))
     const id = hash(req.socket.remoteAddress)
 
     console.log(`[${id}] > ${msg}`)
